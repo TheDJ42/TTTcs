@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TTTcs"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Tic-Tac-Toe" Height="350" Width="525">
     <Grid>
-        
+        <Button x:Name="game" HorizontalAlignment="Left" Margin="126,128,0,0" VerticalAlignment="Top" Width="90" Height="43"/>
+        <Button x:Name="game_2" Content="" HorizontalAlignment="Left" Margin="307,128,0,0" VerticalAlignment="Top" Width="90" Height="43"/>
+        <Button x:Name="game_5" Content="" HorizontalAlignment="Left" Margin="307,171,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.168,0.894" Height="46"/>
+        <Button x:Name="game_1" Content="" HorizontalAlignment="Left" Margin="216,128,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="2.142,2.903" Height="43"/>
+        <Button x:Name="game_3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="126,171,0,0" Height="46"/>
+        <Button x:Name="game_4" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="216,171,0,0" Height="46"/>
+        <Button x:Name="game_6" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="126,217,0,0" Height="46"/>
+        <Button x:Name="game_7" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="216,217,0,0" Height="46"/>
+        <Button x:Name="startGame" Content="Start Game!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="376,45,0,0" Click="startGame_Click"/>
+        <Button x:Name="game_8" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="307,217,0,0" Height="46"/>
+        <TextBlock x:Name="xPlayerName" HorizontalAlignment="Left" Margin="22,22,0,0" TextWrapping="Wrap" Text="X Player Name:" VerticalAlignment="Top" Height="20" Width="84"/>
+        <TextBox x:Name="xPlayerNameText" HorizontalAlignment="Left" Height="23" Margin="111,19,0,0" TextWrapping="Wrap" Text="Enter Your name" VerticalAlignment="Top" Width="120" IsInactiveSelectionHighlightEnabled="True"/>
+        <TextBlock x:Name="playerTurn" HorizontalAlignment="Left" Margin="228,96,0,0" TextWrapping="Wrap" Text="Welcome!" VerticalAlignment="Top"/>
+        <TextBlock x:Name="oPlayerName" HorizontalAlignment="Left" Margin="22,48,0,0" TextWrapping="Wrap" Text="O Player Name:" VerticalAlignment="Top" Height="20" Width="84"/>
+        <TextBox x:Name="oPlayerNameText" HorizontalAlignment="Left" Height="23" Margin="111,47,0,0" TextWrapping="Wrap" Text="Enter Your name" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Window>
