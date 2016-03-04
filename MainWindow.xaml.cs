@@ -19,13 +19,18 @@ namespace TTTcs
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {   
+    {
+        string oPlayerName;
+        int playerTurn = 0;
+       
+
         public MainWindow()
         {
-            //string xPlayerName = xPlayerNameText.Text;
-            //string oPlayerNmae = oPlayerNameText.Text;
-           
+
+
             InitializeComponent();
+
+
 
             game.IsEnabled = false;
             game_1.IsEnabled = false;
@@ -37,12 +42,11 @@ namespace TTTcs
             game_7.IsEnabled = false;
             game_8.IsEnabled = false;
 
-
         }
 
         private void startGame_Click(object sender, RoutedEventArgs e)
         {
-
+            oPlayerName = oPlayerNameText.Text;
             game.IsEnabled = true;
             game_1.IsEnabled = true;
             game_2.IsEnabled = true;
@@ -53,5 +57,60 @@ namespace TTTcs
             game_7.IsEnabled = true;
             game_8.IsEnabled = true;
         }
+        private void XO(Button btn)
+        {
+            if (btn.Content == "") 
+            {
+                if (playerTurn == 0) 
+                {
+                    btn.Content = "X";
+                    playerTurn = 1;
+                 }
+      
+                else 
+                {
+                    btn.Content = "O";
+                    playerTurn = 0;
+                }
+            }
+        }
+
+        private void game_Click(object sender, RoutedEventArgs e)
+        {
+            XO(game);
+        }
+        private void game_1_Click(object sender, RoutedEventArgs e)
+        {
+            XO(game_1);
+        }
+        private void game_2_Click(object sender, RoutedEventArgs e)
+        {
+            XO(game_2);
+        }
+        private void game_3_Click(object sender, RoutedEventArgs e)
+        {
+            XO(game_3);
+        }
+        private void game_4_Click(object sender, RoutedEventArgs e)
+        {
+            XO(game_4);
+        }
+        private void game_5_Click(object sender, RoutedEventArgs e)
+        {
+            XO(game_5);
+        }
+        private void game_6_Click(object sender, RoutedEventArgs e)
+        {
+            XO(game_6);
+        }
+        private void game_7_Click(object sender, RoutedEventArgs e)
+        {
+            XO(game_7);
+        }
+        private void game_8_Click(object sender, RoutedEventArgs e)
+        {
+            XO(game_8);
+        }
+
     }
 }
