@@ -56,10 +56,12 @@ namespace TTTcs
             game_6.IsEnabled = true;
             game_7.IsEnabled = true;
             game_8.IsEnabled = true;
+            xPlayerNameText.IsEnabled = false;
+            oPlayerNameText.IsEnabled = false; 
         }
         private void XO(Button btn)
         {
-            if (btn.Content == "") 
+            if ((string)(btn.Content) == "") 
             {
                 if (playerTurn == 0) 
                 {
@@ -112,5 +114,14 @@ namespace TTTcs
             XO(game_8);
         }
 
+     
+
+        private void NameFocus(object sender, RoutedEventArgs e)
+        {
+            var theBox = (TextBox)sender;
+            if (theBox.Text == "Enter your name")
+            { theBox.Text = " "; }
+
+        }
     }
 }
