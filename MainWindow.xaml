@@ -18,10 +18,10 @@
         <Button x:Name="startGame" Content="Start Game!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="376,45,0,0" Click="startGame_Click"/>
         <Button x:Name="game_8" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="307,217,0,0" Height="46"/>
         <TextBlock HorizontalAlignment="Left" Margin="22,22,0,0" TextWrapping="Wrap" Text="X Player Name:" VerticalAlignment="Top" Height="20" Width="84"/>
-        <TextBox x:Name="xPlayerNameText" HorizontalAlignment="Left" Height="23" Margin="111,19,0,0" TextWrapping="Wrap" Text="Enter Your name" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="xPlayerNameText" HorizontalAlignment="Left" Height="23" Margin="111,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="xPlayerNameText_TextChanged"/>
         <TextBlock x:Name="playerName" HorizontalAlignment="Left" Margin="228,96,0,0" TextWrapping="Wrap" Text="Welcome!" VerticalAlignment="Top"/>
         <TextBlock  HorizontalAlignment="Left" Margin="22,48,0,0" TextWrapping="Wrap" Text="O Player Name:" VerticalAlignment="Top" Height="20" Width="84"/>
-        <TextBox x:Name="oPlayerNameText" HorizontalAlignment="Left" Height="23" Margin="111,47,0,0" TextWrapping="Wrap" Text="Other" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="oPlayerNameText" HorizontalAlignment="Left" Height="23" Margin="111,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
