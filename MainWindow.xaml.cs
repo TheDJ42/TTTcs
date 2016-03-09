@@ -22,7 +22,7 @@ namespace TTTcs
     {
         string oPlayerName;
         int playerTurn = 0;
-       
+        string xPlayerName;   
 
         public MainWindow()
         {
@@ -46,6 +46,7 @@ namespace TTTcs
 
         private void startGame_Click(object sender, RoutedEventArgs e)
         {
+            xPlayerName = xPlayerNameText.Text;
             oPlayerName = oPlayerNameText.Text;
             game.IsEnabled = true;
             game_1.IsEnabled = true;
@@ -57,7 +58,9 @@ namespace TTTcs
             game_7.IsEnabled = true;
             game_8.IsEnabled = true;
             xPlayerNameText.IsEnabled = false;
-            oPlayerNameText.IsEnabled = false; 
+            oPlayerNameText.IsEnabled = false;
+            playerName.Text = xPlayerNameText.Text + "'s Turn";
+
         }
         private void XO(Button btn)
         {
@@ -65,17 +68,20 @@ namespace TTTcs
             {
                 if (playerTurn == 0) 
                 {
+                    playerName.Text = oPlayerNameText.Text + "'s Turn";
                     btn.Content = "X";
                     playerTurn = 1;
                  }
       
                 else 
                 {
+                    playerName.Text = xPlayerNameText.Text + "'s Turn";
                     btn.Content = "O";
                     playerTurn = 0;
                 }
             }
         }
+     
 
         private void game_Click(object sender, RoutedEventArgs e)
         {

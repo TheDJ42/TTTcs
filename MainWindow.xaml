@@ -10,7 +10,7 @@
         <Button x:Name="game" Content="" HorizontalAlignment="Left" Margin="126,128,0,0" VerticalAlignment="Top" Width="90" Height="43" Click="game_Click"/>
         <Button x:Name="game_2" Content="" HorizontalAlignment="Left" Margin="307,128,0,0" VerticalAlignment="Top" Width="90" Height="43" Click="game_2_Click"/>
         <Button x:Name="game_5" Content="" HorizontalAlignment="Left" Margin="307,171,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.168,0.894" Height="46" Click="game_5_Click"/>
-        <Button x:Name="game_1" Content="" HorizontalAlignment="Left" Margin="216,128,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="2.142,2.903" Height="43" Click="game_2_Click"/>
+        <Button x:Name="game_1" Content="" HorizontalAlignment="Left" Margin="216,128,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="2.142,2.903" Height="43" Click="game_1_Click"/>
         <Button x:Name="game_3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="126,171,0,0" Height="46" Click="game_3_Click"/>
         <Button x:Name="game_4" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="216,171,0,0" Height="46" Click="game_4_Click"/>
         <Button x:Name="game_6" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="126,217,0,0" Height="46" Click="game_6_Click"/>
