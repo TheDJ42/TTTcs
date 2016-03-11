@@ -22,8 +22,10 @@ namespace TTTcs
     {
         string oPlayerName;
         int playerTurn = 0;
-        string xPlayerName;   
-
+        string xPlayerName;
+        int gameTurn = 0;
+        int gamesLost = 0;
+        string gameWinner = "";
         public MainWindow()
         {
 
@@ -60,7 +62,7 @@ namespace TTTcs
             xPlayerNameText.IsEnabled = false;
             oPlayerNameText.IsEnabled = false;
             playerName.Text = xPlayerNameText.Text + "'s Turn";
-
+            startGame.IsEnabled = false; 
         }
         private void XO(Button btn)
         {
@@ -71,6 +73,7 @@ namespace TTTcs
                     playerName.Text = oPlayerNameText.Text + "'s Turn";
                     btn.Content = "X";
                     playerTurn = 1;
+                    gameTurn++; 
                  }
       
                 else 
@@ -78,6 +81,7 @@ namespace TTTcs
                     playerName.Text = xPlayerNameText.Text + "'s Turn";
                     btn.Content = "O";
                     playerTurn = 0;
+                    gameTurn++;
                 }
             }
         }
@@ -86,41 +90,132 @@ namespace TTTcs
         private void game_Click(object sender, RoutedEventArgs e)
         {
             XO(game);
+            EndGame(game);
         }
         private void game_1_Click(object sender, RoutedEventArgs e)
         {
             XO(game_1);
+            EndGame(game);
         }
         private void game_2_Click(object sender, RoutedEventArgs e)
         {
             XO(game_2);
+            EndGame(game);
         }
         private void game_3_Click(object sender, RoutedEventArgs e)
         {
             XO(game_3);
+            EndGame(game);
         }
         private void game_4_Click(object sender, RoutedEventArgs e)
         {
             XO(game_4);
+            EndGame(game);
         }
         private void game_5_Click(object sender, RoutedEventArgs e)
         {
             XO(game_5);
+            EndGame(game);
         }
         private void game_6_Click(object sender, RoutedEventArgs e)
         {
             XO(game_6);
+            EndGame(game);
         }
         private void game_7_Click(object sender, RoutedEventArgs e)
         {
             XO(game_7);
+            EndGame(game);
         }
         private void game_8_Click(object sender, RoutedEventArgs e)
         {
             XO(game_8);
+            EndGame(game);
         }
 
-     
+        private void EndGame(Button btn)
+        {
+            if (gameTurn >= 5)
+            {
+                if (game_1 == game && game_1 == game_2)
+                {
+                    WhoAmI(game_1);
+                    game_1.Background = Brushes.Crimson;
+                    game.Background = Brushes.Crimson;
+                    game_2.Background = Brushes.Crimson;
+                    playerName.Text = gameWinner;
+                    startGame.IsEnabled = true;
+                }
+                if (game_4 == game_3 && game_4 == game_5)
+                {
+                    WhoAmI(game_4);
+                    game_4.Background = Brushes.Crimson;
+                    game_5.Background = Brushes.Crimson;
+                    game_3.Background = Brushes.Crimson;
+                    playerName.Text = gameWinner;
+                    startGame.IsEnabled = true;
+                }
+                if (game_3 == game && game_3 == game_6)
+                {
+                    WhoAmI(game_3);
+                    game.Background = Brushes.Crimson;
+                    game_6.Background = Brushes.Crimson;
+                    game_3.Background = Brushes.Crimson;
+                    playerName.Text = gameWinner;
+                    startGame.IsEnabled = true;
+                }
+                if (game_7 == game_6 && game_7 == game_8)
+                {
+                    WhoAmI(game_4);
+                    game_4.Background = Brushes.Crimson;
+                    game_5.Background = Brushes.Crimson;
+                    game_3.Background = Brushes.Crimson;
+                    playerName.Text = gameWinner;
+                    startGame.IsEnabled = true;
+                }
+                if (game_4 == game_1 && game_4 == game_7)
+                {
+                    WhoAmI(game_4);
+                    game_4.Background = Brushes.Crimson;
+                    game_1.Background = Brushes.Crimson;
+                    game_7.Background = Brushes.Crimson;
+                    playerName.Text = gameWinner;
+                    startGame.IsEnabled = true;
+                }
+                if (game_4 == game && game_4 == game_8)
+                {
+                    WhoAmI(game_4);
+                    GameWin(game_4, game, game_8);
+                }
+            }
+            //else if ( //gameTurns == 10)
+            {
+                //If turn equals ten end the game with loss
+            }       
+        
+        }
+
+        private void WhoAmI(Button btn)
+        {
+            if ((string)(btn.Content) == "X")
+            {
+                gameWinner = xPlayerNameText.Text += "is the Winner!";
+            }
+            else
+            {
+                gameWinner = oPlayerNameText.Text += "is the Winner!";
+            }
+                
+        }
+
+        private void GameWin(Button btn, Button btn1, Button btn2)
+        {
+            btn.Background = Brushes.Crimson;
+            btn1.Background = Brushes.Crimson;
+            btn2.Background = Brushes.Crimson;
+            playerName.Text = gameWinner;
+            startGame.IsEnabled = true;
+        }
 
         private void NameFocus(object sender, RoutedEventArgs e)
         {
