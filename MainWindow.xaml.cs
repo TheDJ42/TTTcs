@@ -72,7 +72,8 @@ namespace TTTcs
             game_6.Content = "";
             game_7.Content = "";
             game_8.Content = "";
-
+            // Set Button Backgrounds to white
+            game.Background = Brushes.White
 
 
         }
@@ -180,7 +181,7 @@ namespace TTTcs
                     GameWin(game_4, game, game_8);
                 }
             }
-            else if ( gameTurn == 10 )
+            else if ( gameTurn >= 8 )
             {
                 game.IsEnabled = false;
                 game_1.IsEnabled = false;
@@ -192,7 +193,7 @@ namespace TTTcs
                 game_7.IsEnabled = false;
                 game_8.IsEnabled = false;
                 startGame.IsEnabled = true;
-                playerName.Text = "You have lost! Click Start Game to start again";
+                playerName.Text = "You have lost!";
                 xPlayerNameText.IsEnabled = true;
                 oPlayerNameText.IsEnabled = true;
                 gamesLost++; 
@@ -204,11 +205,14 @@ namespace TTTcs
         {
             if ((string)(btn.Content) == "X")
             {
-                gameWinner = xPlayerNameText.Text += " is the Winner!";
+                gameWinner = xPlayerNameText.Text + " is the Winner!";
+                playerName.Text = gameWinner;
+
             }
             else
             {
-                gameWinner = oPlayerNameText.Text += "is the Winner!";
+                gameWinner = oPlayerNameText.Text + "is the Winner!";
+                playerName.Text = gameWinner;
             }
                 
         }
