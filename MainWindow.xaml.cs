@@ -73,9 +73,20 @@ namespace TTTcs
             game_7.Content = "";
             game_8.Content = "";
             // Set Button Backgrounds to white
-            game.Background = Brushes.White
-
-
+            game.Background = Brushes.White;
+            game_1.Background = Brushes.White;
+            game_2.Background = Brushes.White;
+            game_3.Background = Brushes.White;
+            game_4.Background = Brushes.White;
+            game_5.Background = Brushes.White;
+            game_6.Background = Brushes.White;
+            game_7.Background = Brushes.White;
+            game_8.Background = Brushes.White;
+            //Easter Egg
+            if (oPlayerNameText.Text == "Dylan")
+            {
+                gameTurn = 1;
+            }
         }
         private void XO(Button btn)
         {
@@ -180,25 +191,31 @@ namespace TTTcs
                     WhoAmI(game_4);
                     GameWin(game_4, game, game_8);
                 }
+                if (game_2.Content == game_4.Content && game_4.Content == game_6.Content && (string)game_4.Content != "")
+                {
+                    WhoAmI(game_4);
+                    GameWin(game_4, game_2, game_6);
+                }
+                else if (gameTurn >= 9)
+                {
+                    game.IsEnabled = false;
+                    game_1.IsEnabled = false;
+                    game_2.IsEnabled = false;
+                    game_3.IsEnabled = false;
+                    game_4.IsEnabled = false;
+                    game_5.IsEnabled = false;
+                    game_6.IsEnabled = false;
+                    game_7.IsEnabled = false;
+                    game_8.IsEnabled = false;
+                    startGame.IsEnabled = true;
+                    playerName.Text = "You have lost!";
+                    xPlayerNameText.IsEnabled = true;
+                    oPlayerNameText.IsEnabled = true;
+                    gamesLost++;
+                }
+
             }
-            else if ( gameTurn >= 8 )
-            {
-                game.IsEnabled = false;
-                game_1.IsEnabled = false;
-                game_2.IsEnabled = false;
-                game_3.IsEnabled = false;
-                game_4.IsEnabled = false;
-                game_5.IsEnabled = false;
-                game_6.IsEnabled = false;
-                game_7.IsEnabled = false;
-                game_8.IsEnabled = false;
-                startGame.IsEnabled = true;
-                playerName.Text = "You have lost!";
-                xPlayerNameText.IsEnabled = true;
-                oPlayerNameText.IsEnabled = true;
-                gamesLost++; 
-            }       
-        
+
         }
 
         private void WhoAmI(Button btn)
