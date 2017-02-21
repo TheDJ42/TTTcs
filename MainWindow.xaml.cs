@@ -82,10 +82,14 @@ namespace TTTcs
             game_6.Background = Brushes.White;
             game_7.Background = Brushes.White;
             game_8.Background = Brushes.White;
+            //Resets the game round and... the other thing
+            gameTurn = 1;
+            playerTurn = 0;
             //Easter Egg
-            if (oPlayerNameText.Text == "Dylan")
+            if (oPlayerNameText.Text == "Dylan" || oPlayerNameText.Text == "DJ")
             {
-                gameTurn = 1;
+                playerTurn = 1;
+                playerName.Text = "Welcome Back, " + oPlayerNameText.Text;
             }
         }
         private void XO(Button btn)
