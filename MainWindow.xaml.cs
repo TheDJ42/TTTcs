@@ -26,23 +26,33 @@ namespace TTTcs
         int gameTurn = 0;
         int gamesLost = 0;
         string gameWinner = "";
+        bool gameStatus = false;
         public MainWindow()
         {
 
 
             InitializeComponent();
 
+            // Set Button Backgrounds to white
+            game.Background = Brushes.White;
+            game_1.Background = Brushes.White;
+            game_2.Background = Brushes.White;
+            game_3.Background = Brushes.White;
+            game_4.Background = Brushes.White;
+            game_5.Background = Brushes.White;
+            game_6.Background = Brushes.White;
+            game_7.Background = Brushes.White;
+            game_8.Background = Brushes.White;
 
-
-            game.IsEnabled = false;
-            game_1.IsEnabled = false;
-            game_2.IsEnabled = false;
-            game_3.IsEnabled = false;
-            game_4.IsEnabled = false;
-            game_5.IsEnabled = false;
-            game_6.IsEnabled = false;
-            game_7.IsEnabled = false;
-            game_8.IsEnabled = false;
+            //game.IsEnabled = false;
+            //game_1.IsEnabled = false;
+            //game_2.IsEnabled = false;
+            //game_3.IsEnabled = false;
+            //game_4.IsEnabled = false;
+            //game_5.IsEnabled = false;
+            //game_6.IsEnabled = false;
+            //game_7.IsEnabled = false;
+            //game_8.IsEnabled = false;
 
         }
 
@@ -50,15 +60,15 @@ namespace TTTcs
         {
             xPlayerName = xPlayerNameText.Text;
             oPlayerName = oPlayerNameText.Text;
-            game.IsEnabled = true;
-            game_1.IsEnabled = true;
-            game_2.IsEnabled = true;
-            game_3.IsEnabled = true;
-            game_4.IsEnabled = true;
-            game_5.IsEnabled = true;
-            game_6.IsEnabled = true;
-            game_7.IsEnabled = true;
-            game_8.IsEnabled = true;
+            //game.IsEnabled = true;
+            //game_1.IsEnabled = true;
+            //game_2.IsEnabled = true;
+            //game_3.IsEnabled = true;
+            //game_4.IsEnabled = true;
+            //game_5.IsEnabled = true;
+            //game_6.IsEnabled = true;
+            //game_7.IsEnabled = true;
+            //game_8.IsEnabled = true;
             xPlayerNameText.IsEnabled = false;
             oPlayerNameText.IsEnabled = false;
             playerName.Text = xPlayerNameText.Text + "'s Turn";
@@ -72,19 +82,10 @@ namespace TTTcs
             game_6.Content = "";
             game_7.Content = "";
             game_8.Content = "";
-            // Set Button Backgrounds to white
-            game.Background = Brushes.White;
-            game_1.Background = Brushes.White;
-            game_2.Background = Brushes.White;
-            game_3.Background = Brushes.White;
-            game_4.Background = Brushes.White;
-            game_5.Background = Brushes.White;
-            game_6.Background = Brushes.White;
-            game_7.Background = Brushes.White;
-            game_8.Background = Brushes.White;
-            //Resets the game round and... the other thing
+            //Resets the game round and sets the status of the game to true.
             gameTurn = 1;
             playerTurn = 0;
+            gameStatus = true;
             //Easter Egg
             if (oPlayerNameText.Text == "Dylan" || oPlayerNameText.Text == "DJ")
             {
@@ -94,22 +95,24 @@ namespace TTTcs
         }
         private void XO(Button btn)
         {
-            if ((string)(btn.Content) == "") 
-            {
-                if (playerTurn == 0) 
+            if (gameStatus == true)
+            {   if ((string)(btn.Content) == "")
                 {
-                    playerName.Text = oPlayerNameText.Text + "'s Turn";
-                    btn.Content = "X";
-                    playerTurn = 1;
-                    gameTurn++; 
-                 }
-      
-                else 
-                {
-                    playerName.Text = xPlayerNameText.Text + "'s Turn";
-                    btn.Content = "O";
-                    playerTurn = 0;
-                    gameTurn++;
+                    if (playerTurn == 0)
+                    {
+                        playerName.Text = oPlayerNameText.Text + "'s Turn";
+                        btn.Content = "X";
+                        playerTurn = 1;
+                        gameTurn++;
+                    }
+
+                    else
+                    {
+                        playerName.Text = xPlayerNameText.Text + "'s Turn";
+                        btn.Content = "O";
+                        playerTurn = 0;
+                        gameTurn++;
+                    }
                 }
             }
         }
@@ -202,20 +205,13 @@ namespace TTTcs
                 }
                 else if (gameTurn >= 9)
                 {
-                    game.IsEnabled = false;
-                    game_1.IsEnabled = false;
-                    game_2.IsEnabled = false;
-                    game_3.IsEnabled = false;
-                    game_4.IsEnabled = false;
-                    game_5.IsEnabled = false;
-                    game_6.IsEnabled = false;
-                    game_7.IsEnabled = false;
-                    game_8.IsEnabled = false;
+                    gameStatus = false;
                     startGame.IsEnabled = true;
                     playerName.Text = "You have lost!";
                     xPlayerNameText.IsEnabled = true;
                     oPlayerNameText.IsEnabled = true;
                     gamesLost++;
+                    
                 }
 
             }
@@ -232,7 +228,7 @@ namespace TTTcs
             }
             else
             {
-                gameWinner = oPlayerNameText.Text + "is the Winner!";
+                gameWinner = oPlayerNameText.Text + " is the Winner!";
                 playerName.Text = gameWinner;
             }
                 
@@ -245,15 +241,7 @@ namespace TTTcs
             btn2.Background = Brushes.Crimson;
             playerName.Text = gameWinner;
             startGame.IsEnabled = true;
-            game.IsEnabled = false;
-            game_1.IsEnabled = false;
-            game_2.IsEnabled = false;
-            game_3.IsEnabled = false;
-            game_4.IsEnabled = false;
-            game_5.IsEnabled = false;
-            game_6.IsEnabled = false;
-            game_7.IsEnabled = false;
-            game_8.IsEnabled = false;
+            gameStatus = false;
             startGame.IsEnabled = true;
             xPlayerNameText.IsEnabled = true;
             oPlayerNameText.IsEnabled = true;
@@ -262,8 +250,8 @@ namespace TTTcs
         private void NameFocus(object sender, RoutedEventArgs e)
         {
             var theBox = (TextBox)sender;
-            if (theBox.Text == "Enter your name")
-            { theBox.Text = " "; }
+            if (theBox.Text == "Enter your name" || theBox.Text != "")
+            { theBox.Text = ""; }
 
         }
     }
